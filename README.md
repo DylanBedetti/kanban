@@ -3,7 +3,7 @@
 # How to run locally
 
 # TO DO
-- 
+- Create very basic outline of cards, list lines, want scrollable areas, header title
 
 # Tech overview
 - React

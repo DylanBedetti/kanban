@@ -11,6 +11,7 @@
     "react-scripts": "4.0.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.1",
+    "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -20,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/ ;exit 0",
     "lint:fix": "eslint src/ --fix ;exit 0",
-    "server" : "json-server --port 8080 --watch src/db.json"
+    "server": "json-server --port 8080 --watch src/db.json"
   },
   "eslintConfig": {
     "extends": [
