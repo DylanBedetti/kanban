@@ -14,5 +14,8 @@
 - eslint
 - firebase?
 
+# Questions
+- Header.js -> why does this work (e, { name, path }), but not this ({ name, path })????
+
 
 # Useful Links

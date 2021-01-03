@@ -21,6 +21,7 @@
       "semi": ["error", "always"],
       "semi-style": ["error", "last"],
       "quotes": ["error", "double"],
+      "indent": ["error", 2],
       "react/jsx-indent": [2,2]
     }
 }
