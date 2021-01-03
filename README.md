@@ -12,6 +12,7 @@
 - styled components
 - Json-server (dev backend)
 - eslint
+- firebase?
 
 
 # Useful Links
