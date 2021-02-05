@@ -1,21 +1,50 @@
-# A copy of your common Kanban board
+# Weclome to my Kanban board
 
-# How to run locally
+<details>
+<summary>Project Details</summary>
+<br>
+# How to run locally?
 
 # TO DO
-- Create very basic outline of cards, list lines, want scrollable areas, header title
 
-# Tech overview
+- [ ] Define database schema
+- [ ] Build Routes
+- [ ] Create all CRUD methods
+- [ ] Test backend with Postman
+- [ ] Deploy database to AWS? or keep locally? do both?
+
+# Questions
+
+- Header.js -> why does this work (e, { name, path }), but not this ({ name, path })????
+
+# Useful Links
+
+[Express Docs](http://expressjs.com/en/api.html#app.use)
+[Realational Database Schematic](https://dbdiagram.io/)
+
+</details>
+
+<details>
+<summary>Tech overview</summary>
+<br>
+# Database Schema
+
+# Routes
+
+# Technologies I want to use
+
 - React
 - Cypress Testing
 - Semantic UI
-- styled components
-- Json-server (dev backend)
-- eslint
-- firebase?
+- SASS
+- eslint / prettier
+- firebase / cognito
+- nodejs backend
+- circle CI
+- postgres database
+- Postman testing
+- error logging - sentry?
+- secrets manager - aws?
 
-# Questions
-- Header.js -> why does this work (e, { name, path }), but not this ({ name, path })????
-
-
-# Useful Links
+</details>
+<br>
