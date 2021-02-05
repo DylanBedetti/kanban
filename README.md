@@ -12,6 +12,7 @@
 - [ ] Create all CRUD methods
 - [ ] Test backend with Postman
 - [ ] Deploy database to AWS? or keep locally? do both?
+- [ ] Add stickers to project
 
 # Questions
 
