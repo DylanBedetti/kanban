@@ -5,25 +5,10 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
-const { Pool, Client } = require("pg");
+const User = require("./models/user");
 
 const app = express();
-const ex_port = process.env.EXPRESS_PORT;
-
-const user = process.env.POSTGRES_USER;
-const host = "127.0.0.1";
-const database = process.env.POSTGRES_DATABASE;
-const password = process.env.POSTGRES_PASSWORD;
-const pg_port = process.env.POSTGRES_PORT;
-
-// database
-const pool = new Pool({
-  user: user,
-  host: host,
-  database: database,
-  password: password,
-  port: pg_port,
-});
+const port = process.env.EXPRESS_PORT;
 
 // application level middleware
 app.use(morgan("tiny"));
@@ -48,6 +33,8 @@ app.get("/", (req, res) => {
   res.send({ message: "endpoint working" });
 });
 
-app.listen(ex_port, () => {
-  console.log(`Example app listening at http://localhost:${ex_port}`);
+app.get("/users", User.readAll);
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
