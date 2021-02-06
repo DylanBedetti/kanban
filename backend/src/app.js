@@ -5,7 +5,8 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
-const User = require("./models/user");
+const sequelize = require("./database");
+const insertFakeData = require("./database/fakeData");
 
 const app = express();
 const port = process.env.EXPRESS_PORT;
@@ -33,8 +34,19 @@ app.get("/", (req, res) => {
   res.send({ message: "endpoint working" });
 });
 
-app.get("/users", User.readAll);
+// app.get("/users", User.readAll);
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log(`Example app listening at http://localhost:${port}`);
+
+  // connecting to database
+  try {
+    await sequelize.authenticate();
+    console.log("Postgres connection has been established successfully");
+    await sequelize.sync({ alter: true });
+    console.log("All models were synchronized successfully.");
+    await insertFakeData();
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
 });
