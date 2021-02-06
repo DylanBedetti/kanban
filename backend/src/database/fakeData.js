@@ -1,7 +1,10 @@
-const User = require("../models/user");
+const User = require("../models/User");
+const Board = require("../models/Boards");
 
 const insertFakeData = async () => {
   const userCount = await User.count();
+  // const boardCount = await Board.count();
+
   if (userCount === 0) {
     await User.bulkCreate([
       {
@@ -29,6 +32,14 @@ const insertFakeData = async () => {
         password: "hello",
       },
     ]);
+
+    // await Board.bulkCreate([
+    //   {
+    //     name: "Work",
+    //     backgroundImage: "url/spaghetti",
+    //     userOwner:
+    //   },
+    // ]);
 
     console.log("Fake data inserted");
   } else {

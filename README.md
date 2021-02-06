@@ -3,6 +3,7 @@
 <details>
 <summary>Project Details</summary>
 <br>
+
 # How to run locally?
 
 # TO DO
@@ -31,6 +32,7 @@
 <details>
 <summary>Tech overview</summary>
 <br>
+
 # Database Schema
 
 # Routes
