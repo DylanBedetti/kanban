@@ -6,9 +6,11 @@
 
 # How to run locally?
 
+`npm i && npm db:up && npm run dev`
+
 # TO DO
 
-- [ ] Define database schema
+- [x] Define database schema
 - [ ] Build Routes
 - [ ] Create all CRUD methods
 - [ ] Test backend with Postman
