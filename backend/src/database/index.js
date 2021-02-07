@@ -12,6 +12,4 @@ const DATABASE_URL = `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${host}:$
 // sequelize is the database object that is shared around
 const sequelize = new Sequelize(DATABASE_URL, { logging: false });
 
-console.log(sequelize);
-
 module.exports = sequelize;
