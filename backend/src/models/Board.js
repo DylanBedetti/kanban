@@ -4,9 +4,9 @@ const User = require("./User");
 
 const Board = database.define("board", {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4,
   },
   name: {
     type: DataTypes.STRING,
@@ -15,8 +15,8 @@ const Board = database.define("board", {
   backgroundImage: {
     type: DataTypes.STRING,
   },
-  userOwner: {
-    type: DataTypes.STRING,
+  users_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: User,

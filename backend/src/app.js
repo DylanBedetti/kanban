@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 // app.get("/users", User.readAll);
 
 app.listen(port, async () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 
   // connecting to database
   try {

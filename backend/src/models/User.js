@@ -3,9 +3,9 @@ const database = require("../database");
 
 const User = database.define("user", {
   id: {
-    type: DataTypes.UUID,
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4,
   },
   firstName: {
     type: DataTypes.STRING,

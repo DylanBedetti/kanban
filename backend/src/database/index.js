@@ -1,14 +1,17 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
 
-const user = process.env.POSTGRES_USER;
+const POSTGRES_USER = process.env.POSTGRES_USER;
+const POSTGRES_DB = process.env.POSTGRES_DB;
+const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD;
+const POSTGRES_PORT = process.env.POSTGRES_PORT;
 const host = "127.0.0.1";
-const database = process.env.POSTGRES_DB;
-const password = process.env.POSTGRES_PASSWORD;
-const port = process.env.POSTGRES_PORT;
 
-const DATABASE_URL = `postgres://${user}:${password}@${host}:${port}/${database}`;
+const DATABASE_URL = `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${host}:${POSTGRES_PORT}/${POSTGRES_DB}`;
 
-const sequelize = new Sequelize(DATABASE_URL);
+// sequelize is the database object that is shared around
+const sequelize = new Sequelize(DATABASE_URL, { logging: false });
+
+console.log(sequelize);
 
 module.exports = sequelize;
