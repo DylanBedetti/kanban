@@ -17,9 +17,11 @@
 
 # Questions
 
-- Header.js -> why does this work (e, { name, path }), but not this ({ name, path })????
-- How to think about mapping database schema to REST API? Should be thinking more about what the frontend will want to request / how user will use the app? Do I want a route for every table for CRUD operations?
-- is this a legit URI: postgres://${user}:${password}@${host}:${port}/${database}? whats the go with postgres://
+- **frontend** &#8594; Header.js -> why does this work (e, { name, path }), but not this ({ name, path })????
+- **database** &#8594; How to think about mapping database schema to REST API? Should be thinking more about what the frontend will want to request / how user will use the app? Do I want a route for every table for CRUD operations?
+- **database** &#8594; is this a legit URI: postgres://${user}:${password}@${host}:${port}/${database}? whats the go with postgres://
+- **database** &#8594; direction of database associations? a comment has a single user, or a user has many comments? which table to define assocations?
+- **database** &#8594; Should I be using UUID's or just incrementing ids to unique define rows?
 
 # Useful Links
 
@@ -34,6 +36,8 @@
 <br>
 
 # Database Schema
+
+![Database Schema](./docs/images/databaseSchema.PNG)
 
 # Routes
 
