@@ -24,6 +24,7 @@
 - **database** &#8594; is this a legit URI: postgres://${user}:${password}@${host}:${port}/${database}? whats the go with postgres://
 - **database** &#8594; direction of database associations? a comment has a single user, or a user has many comments? which table to define assocations?
 - **database** &#8594; Should I be using UUID's or just incrementing ids to unique define rows?
+- **javascript** &#8594; How to interpret / understand / find documentation on vscode hints like this ![Vscode Documentation](./docs/images/vscodeDocumentation.PNG)
 
 # Useful Links
 
