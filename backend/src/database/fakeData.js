@@ -13,24 +13,28 @@ const insertFakeData = async () => {
       {
         firstName: "bill",
         lastName: "jeff",
+        email: "jeff@gmail.com",
         profilePhoto: "afwdwdsf",
         password: "hello",
       },
       {
         firstName: "bob",
         lastName: "dong",
+        email: "bob@gmail.com",
         profilePhoto: "bgbs",
         password: "hello",
       },
       {
         firstName: "dan",
         lastName: "rem",
+        email: "dan@gmail.com",
         profilePhoto: "afdsdfvfvsf",
         password: "hello",
       },
       {
         firstName: "tom",
         lastName: "mon",
+        email: "tom@gmail.com",
         profilePhoto: "fsdfdf",
         password: "hello",
       },

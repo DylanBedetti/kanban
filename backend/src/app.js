@@ -5,41 +5,44 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
+
 const sequelize = require("./database");
 const insertFakeData = require("./database/fakeData");
+
+const authRoutes = require("./routes/auth");
 
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
-// application level middleware
+// APPLICATION LEVEL MIDDLEWARE
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(bodyParser.json());
 
-// error handling
-app.use((err, req, res, next) => {
-  console.log(err);
-  if (!res.headersSent) {
-    res.status(500).send(err.message);
-  }
-});
-
-// static paths
+// STATIC PATHS
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// route level middleware
-// app.use("/auth", authRoutes);
+// ROUTE LEVEL MIDDLEWARE
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send({ message: "endpoint working" });
 });
 
-// app.get("/users", User.readAll);
+// ERROR HANDLING
+app.use((err, req, res, next) => {
+  console.log(err);
+  const status = err.statusCode || 500;
+  const message = err.message;
+  const data = err.data;
+  res.status(status).json({ message: message, data: data });
+});
 
+// STARTING SERVER
 app.listen(port, async () => {
   console.log(`App listening at http://localhost:${port}`);
 
-  // connecting to database
+  // DATABASE
   try {
     await sequelize.authenticate();
     console.log("Postgres connection has been established successfully");

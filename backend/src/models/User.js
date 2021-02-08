@@ -15,6 +15,10 @@ const User = database.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   profilePhoto: {
     type: DataTypes.STRING,
   },
