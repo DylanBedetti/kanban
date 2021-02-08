@@ -6,7 +6,13 @@
 
 # How to run locally?
 
-`npm i && npm db:up && npm run dev`
+### backend
+
+> `npm i && npm db:up && npm run dev`
+
+### frontend
+
+> `npm i && npm run dev`
 
 # TO DO
 
