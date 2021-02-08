@@ -14,6 +14,9 @@ class GeneralError extends Error {
     if (this instanceof ValidationFailed) {
       return 422;
     }
+    if (this instanceof Unauthorized) {
+      return 401;
+    }
     return 500;
   }
 }
@@ -21,10 +24,12 @@ class GeneralError extends Error {
 class BadRequest extends GeneralError {}
 class NotFound extends GeneralError {}
 class ValidationFailed extends GeneralError {}
+class Unauthorized extends GeneralError {}
 
 module.exports = {
   GeneralError,
   BadRequest,
   NotFound,
   ValidationFailed,
+  Unauthorized,
 };
