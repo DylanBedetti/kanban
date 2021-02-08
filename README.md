@@ -34,9 +34,9 @@
 
 # Useful Links
 
-[Express Docs](http://expressjs.com/en/api.html#app.use)
-[Realational Database Schematic](https://dbdiagram.io/)
-[node-postgres docs](https://node-postgres.com/features/connecting)
+[Express Docs](http://expressjs.com/en/api.html#app.use) <br>
+[Realational Database Schematic](https://dbdiagram.io/) <br>
+[node-postgres docs](https://node-postgres.com/features/connecting) <br>
 
 </details>
 
