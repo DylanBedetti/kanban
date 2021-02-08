@@ -11,6 +11,8 @@ const insertFakeData = require("./database/fakeData");
 
 const authRoutes = require("./routes/auth");
 
+const handleErrors = require("./middleware/handleErrors");
+
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
@@ -30,13 +32,14 @@ app.get("/", (req, res) => {
 });
 
 // ERROR HANDLING
-app.use((err, req, res, next) => {
-  console.log(err);
-  const status = err.statusCode || 500;
-  const message = err.message;
-  const data = err.data;
-  res.status(status).json({ message: message, data: data });
-});
+// app.use((err, req, res, next) => {
+//   console.log(err);
+//   const status = err.statusCode || 500;
+//   const message = err.message;
+//   const data = err.data;
+//   res.status(status).json({ message: message, data: data });
+// });
+app.use(handleErrors);
 
 // STARTING SERVER
 app.listen(port, async () => {

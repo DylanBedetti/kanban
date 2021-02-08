@@ -1,20 +1,15 @@
 const User = require("../models/User");
 const { validationResult } = require("express-validator/check");
+const { ValidationFailed } = require("../utils/errors");
 
 exports.signup = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    const error = new Error("Validation failed");
-    error.statusCode = 422;
-    error.data = errors.array();
-    throw error;
+    throw new ValidationFailed(errors.array());
   }
 
-  const email = req.body.email;
-  const password = req.body.password;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  const { email, password, firstName, lastName } = req.body;
 
   User.create({ email, password, firstName, lastName })
     .then((result) => {
@@ -27,3 +22,7 @@ exports.signup = (req, res, next) => {
       next(err);
     });
 };
+
+// exports.signup = (req, res next) => {
+
+// }
