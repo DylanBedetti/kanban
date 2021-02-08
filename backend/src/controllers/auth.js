@@ -10,9 +10,9 @@ exports.signup = (req, res, next) => {
     throw new ValidationFailed(errors.array());
   }
 
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, profilePhoto } = req.body;
 
-  User.create({ email, password, firstName, lastName })
+  User.create({ email, password, firstName, lastName, profilePhoto })
     .then((result) => {
       res.status(201).json({ message: "User Created", id: result.id });
     })

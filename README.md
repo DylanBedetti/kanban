@@ -18,6 +18,7 @@
 
 - [x] Define database schema
 - [ ] Build Routes
+- [ ] Update table columns to camelcase
 - [ ] Create all CRUD methods
 - [ ] Test backend with Postman
 - [ ] Deploy database to AWS? or keep locally? do both?
@@ -37,6 +38,7 @@
 [Express Docs](http://expressjs.com/en/api.html#app.use) <br>
 [Realational Database Schematic](https://dbdiagram.io/) <br>
 [node-postgres docs](https://node-postgres.com/features/connecting) <br>
+[Seqeulize](https://sequelize.org/master/manual/model-querying-basics.html) <br>
 
 </details>
 

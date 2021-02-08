@@ -1,7 +1,8 @@
 const { GeneralError } = require("../utils/errors");
 
 const handleErrors = (err, req, res, next) => {
-  console.log(`${__filename}: ${err}`);
+  console.log(`${__filename}: `);
+  console.warn(err);
 
   if (err instanceof GeneralError) {
     return res.status(err.getCode()).json({

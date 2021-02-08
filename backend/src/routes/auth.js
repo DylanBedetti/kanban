@@ -12,6 +12,7 @@ router.post(
     body("password").trim().isLength({ min: 5 }),
     body("firstName").trim().isLength({ min: 3 }),
     body("lastName").trim().isLength({ min: 3 }),
+    body("profilePhoto").optional().trim().isURL(),
   ],
   authController.signup
 );
