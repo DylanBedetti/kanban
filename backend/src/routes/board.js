@@ -17,13 +17,18 @@ router.post(
   boardController.createBoard
 );
 
+// :boardId is accessible in req.params.boardId
 //  when updating, expect all of the required columsn to be provided - don't just do it on a difference basis
-// router.put("/boards/:boardId", [
-//   body("name").optional().trim().isLength({ min: 3 }),
-//   body("backgroundImage").optional().trim().isURL(),
-//   body("users_id").optional().trim().isInt(),
-// ]);
+router.put(
+  "/boards/:boardId",
+  [
+    body("name").trim().isLength({ min: 3 }),
+    body("backgroundImage").trim().isURL(),
+    body("users_id").trim().isInt(),
+  ],
+  boardController.editBoard
+);
 
-router.delete("/boards/:boardId");
+router.delete("/boards/:boardId", boardController.deleteBoard);
 
 module.exports = router;
