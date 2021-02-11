@@ -1,14 +1,14 @@
 const { validationResult } = require("express-validator");
 const { ValidationFailed } = require("../utils/errors");
 const { Op } = require("sequelize");
-const List = require("../models/List");
+const Card = require("../models/Card");
 
-exports.getLists = (req, res, next) => {
-  List.findAll()
-    .then((lists) => {
+exports.getCards = (req, res, next) => {
+  Card.findAll()
+    .then((cards) => {
       res
         .status(200)
-        .json({ message: "Fetched boards successfully.", lists: lists });
+        .json({ message: "Fetched boards successfully.", cards: cards });
     })
     .catch((err) => {
       if (!err.statusCode) {
@@ -18,20 +18,20 @@ exports.getLists = (req, res, next) => {
     });
 };
 
-exports.createList = (req, res, next) => {
+exports.createCard = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     throw new ValidationFailed(errors.array());
   }
 
-  const { order, title, users_id, boards_id } = req.body;
+  const { order, title, description, due_date, users_id, lists_id } = req.body;
 
-  List.create({ order, title, users_id, boards_id })
+  Card.create({ order, title, description, due_date, users_id, lists_id })
     .then((result) => {
       res
         .status(201)
-        .json({ message: "List Created", list: result.dataValues });
+        .json({ message: "Card Created", card: result.dataValues });
     })
     .catch((err) => {
       if (!err.statusCode) {
@@ -41,24 +41,24 @@ exports.createList = (req, res, next) => {
     });
 };
 
-exports.editList = (req, res, next) => {
+exports.editCard = (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     throw new ValidationFailed(errors.array());
   }
 
-  const listId = req.params.listId;
-  const { order, title, users_id, boards_id } = req.body;
+  const cardId = req.params.cardId;
+  const { order, title, description, due_date, users_id, lists_id } = req.body;
 
-  List.update(
-    { order, title, users_id, boards_id },
-    { where: { id: listId }, returning: true }
+  Card.update(
+    { order, title, description, due_date, users_id, lists_id },
+    { where: { id: cardId }, returning: true }
   )
     .then((result) => {
       res
         .status(200)
-        .json({ message: "List Updated", list: result[1][0].dataValues });
+        .json({ message: "Card Updated", card: result[1][0].dataValues });
     })
     .catch((err) => {
       if (!err.statusCode) {
@@ -68,12 +68,12 @@ exports.editList = (req, res, next) => {
     });
 };
 
-exports.deleteList = (req, res, next) => {
-  const listId = req.params.listId;
+exports.deleteCard = (req, res, next) => {
+  const cardId = req.params.cardId;
 
-  List.destroy({ where: { id: listId } })
+  Card.destroy({ where: { id: cardId } })
     .then((result) => {
-      res.status(200).json({ message: "List Deleted" });
+      res.status(200).json({ message: "Card Deleted" });
     })
     .catch((err) => {
       if (!err.statusCode) {

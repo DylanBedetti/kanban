@@ -77,21 +77,21 @@ const insertFakeData = async () => {
     await Card.bulkCreate([
       {
         order: 0,
-        title: "TO DO",
+        title: "a cool card",
         description: "Wow a cool card",
         users_id: "2",
         lists_id: "1",
       },
       {
         order: 1,
-        title: "DOING",
+        title: "creating another cool card",
         description: "Another amazing card",
         users_id: "2",
         lists_id: "1",
       },
       {
         order: 2,
-        title: "DONE",
+        title: "this will be my last card",
         description: "Last Card",
         users_id: "3",
         lists_id: "2",
