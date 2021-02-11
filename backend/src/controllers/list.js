@@ -8,7 +8,7 @@ exports.getLists = (req, res, next) => {
     .then((lists) => {
       res
         .status(200)
-        .json({ message: "Fetched boards successfully.", lists: lists });
+        .json({ message: "Fetched lists successfully.", lists: lists });
     })
     .catch((err) => {
       if (!err.statusCode) {
