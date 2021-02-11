@@ -1,4 +1,4 @@
-![backend](https://github.com/dylanbedetti/kanban/workflows/.github/workflows/backend.yml/badge.svg)
+[![Actions Status](https://github.com/dylanbedetti/kanban/workflows/.github/workflows/backend.yml/badge.svg)](https://github.com/dylanbedetti/kanban/actions)
 
 # Weclome to my Kanban board
 
