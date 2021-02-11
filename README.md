@@ -6,7 +6,7 @@
 
 # How to run locally?
 
-### backend
+### backend 
 
 > `npm i && npm db:up && npm run dev`
 
