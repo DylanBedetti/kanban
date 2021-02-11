@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "f7ff7c48-ceb6-4a1c-943f-73b5e209a495",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Creating User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"User Created\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"billybob@gmail.com\",\r\n    \"password\": \"mypassword\",\r\n    \"firstName\": \"billy\",\r\n    \"lastName\": \"bobs\",\r\n    \"profilePhoto\": \"www.google.com/myphoto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/auth/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validation User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"user logged in successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jeff@gmail.com\",\r\n    \"password\": \"hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "Get all boards",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql(\"Fetched boards successfully.\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/boards",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single board",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/boards/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"boards",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Board",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sarah\",\r\n    \"users_id\": \"2\",\r\n    \"backgroundImage\": \"www.google.com/birb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/boards",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating Board",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Something\",\n    \"backgroundImage\": \"www.google.com/background\",\n    \"users_id\": \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/boards/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"boards",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting Board",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/boards/7",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"boards",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List",
+			"item": [
+				{
+					"name": "Get all lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/lists",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Will Do One Day\",\n    \"order\": \"5\",\n    \"users_id\": \"2\",\n    \"boards_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/lists",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating List",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Will Do One Day\",\n    \"order\": \"1\",\n    \"users_id\": \"2\",\n    \"boards_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/lists/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"lists",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting List",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/lists/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"lists",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "Get all Cards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/cards",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Another card\",\n    \"order\": \"3\",\n    \"description\": \"another card that I need to spend my time making\",\n    \"users_id\": \"1\",\n    \"lists_id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/cards",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating Card",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"I shall edit this card later\",\n    \"order\": \"5\",\n    \"description\": \"another card that I need to spend my time making\",\n    \"users_id\": \"1\",\n    \"lists_id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/cards/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"cards",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting Card",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/cards/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"cards",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get all Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"This is a sick comment\",\n    \"order\": \"3\",\n    \"users_id\": \"1\",\n    \"cards_id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/comments",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updating Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"I just edited this comment bish\",\n    \"order\": \"4\",\n    \"users_id\": \"1\",\n    \"cards_id\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{version}}/comments/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"comments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting Comments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{version}}/comments/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{version}}",
+								"comments",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
