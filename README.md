@@ -18,7 +18,9 @@
 
 - [x] Define database schema
 - [ ] Build Routes
+- [ ] Add github build/testing with postman
 - [ ] Update table columns to camelcase
+- [ ] [Read the actual trello api](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/)
 - [ ] Create all CRUD methods
 - [ ] Test backend with Postman
 - [ ] Deploy database to AWS? or keep locally? do both?
@@ -33,6 +35,7 @@
 - **database** &#8594; Should I be using UUID's or just incrementing ids to unique define rows?
 - **javascript** &#8594; How to interpret / understand / find documentation on vscode hints like this ![Vscode Documentation](./docs/images/vscodeDocumentation.PNG)
 - **endpoints** &#8594; You should want CRUD endpoints for each table (boards, cards, comments, lists, etc), however you also wanna make this data easily accessible for the frontend without having to do 5 or more separate requests - ideally you want to just do a single request based on the board_id and request all the resources that relate to it? I think? also how would you represent this data in the frontend?? big json object? keep it similar to the backend? or make it as easy as possible for the frontend???
+- **endpoints** &#8594; Should I make a CRUD class or something? seems like a lot of repetative code for each endpoint.
 
 # Useful Links
 
