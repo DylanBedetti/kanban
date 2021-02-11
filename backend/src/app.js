@@ -9,8 +9,7 @@ const path = require("path");
 const sequelize = require("./database");
 const insertFakeData = require("./database/fakeData");
 
-const authRoutes = require("./routes/auth");
-const boardRoutes = require("./routes/board");
+const router = require("./routes/v1");
 
 const handleErrors = require("./middleware/handleErrors");
 
@@ -26,8 +25,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // ROUTE LEVEL MIDDLEWARE
-app.use("/auth", authRoutes);
-app.use("/board", boardRoutes);
+app.use("/v1", router);
 
 app.get("/", (req, res) => {
   res.send({ message: "endpoint working" });

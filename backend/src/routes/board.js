@@ -5,10 +5,11 @@ const boardController = require("../controllers/board");
 
 const router = Router();
 
-router.get("/boards", boardController.getBoards);
+router.get("/:boardId", boardController.getBoards);
+router.get("/", boardController.getBoards);
 
 router.post(
-  "/boards",
+  "/",
   [
     body("name").trim().isLength({ min: 3 }),
     body("backgroundImage").optional().trim().isURL(),
@@ -20,7 +21,7 @@ router.post(
 // :boardId is accessible in req.params.boardId
 //  when updating, expect all of the required columsn to be provided - don't just do it on a difference basis
 router.put(
-  "/boards/:boardId",
+  "/:boardId",
   [
     body("name").trim().isLength({ min: 3 }),
     body("backgroundImage").trim().isURL(),
@@ -29,6 +30,6 @@ router.put(
   boardController.editBoard
 );
 
-router.delete("/boards/:boardId", boardController.deleteBoard);
+router.delete("/:boardId", boardController.deleteBoard);
 
 module.exports = router;

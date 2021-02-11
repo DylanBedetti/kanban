@@ -4,7 +4,10 @@ const { Op } = require("sequelize");
 const Board = require("../models/Board");
 
 exports.getBoards = (req, res, next) => {
-  Board.findAll()
+  const boardId = req.params.boardId;
+  const options = boardId ? { where: { id: boardId } } : {};
+
+  Board.findAll(options)
     .then((boards) => {
       res
         .status(200)
