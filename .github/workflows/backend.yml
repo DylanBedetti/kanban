@@ -1,42 +1,42 @@
-name: backend CI
+# name: backend CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  build:
+# jobs:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
+#     strategy:
+#       matrix:
+#         node-version: [14.x]
 
-    steps:
-    - uses: actions/checkout@v2
-      with: 
-        path: backend
-    - uses: docker-practice/actions-setup-docker@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install
-      working-directory: backend
-      run: npm i
+#     steps:
+#     - uses: actions/checkout@v2
+#       with:
+#         path: backend
+#     - uses: docker-practice/actions-setup-docker@master
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - name: Install
+#       working-directory: backend
+#       run: npm i
 
-    - name: Docker
-      working-directory: backend
-      run: npm run db:up
-      
-    - name: Start
-      working-directory: backend
-      run: npm start
+#     - name: Docker
+#       working-directory: backend
+#       run: npm run db:up
 
-    - name: CI
-      working-directory: backend
-      run: npm run ci
+#     - name: Start
+#       working-directory: backend
+#       run: npm start
+
+#     - name: CI
+#       working-directory: backend
+#       run: npm run ci
 

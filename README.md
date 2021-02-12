@@ -8,7 +8,7 @@
 
 # How to run locally?
 
-### backend 
+### backend
 
 > `npm i && npm db:up && npm run dev`
 
@@ -22,8 +22,9 @@
 - [ ] Build Routes
 - [ ] Add github build/testing with postman
 - [ ] Update table columns to camelcase
+- [ ] Need to create more fake data!!
 - [ ] [Read the actual trello api](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/)
-- [ ] Create all CRUD methods
+- [x] Create all CRUD methods
 - [ ] Test backend with Postman
 - [ ] Deploy database to AWS? or keep locally? do both?
 - [ ] Add stickers to project
@@ -34,6 +35,7 @@
 - **database** &#8594; How to think about mapping database schema to REST API? Should be thinking more about what the frontend will want to request / how user will use the app? Do I want a route for every table for CRUD operations?
 - **database** &#8594; is this a legit URI: postgres://${user}:${password}@${host}:${port}/${database}? whats the go with postgres://
 - **database** &#8594; direction of database associations? a comment has a single user, or a user has many comments? which table to define assocations?
+- **database** &#8594; How to manage the order of lists/cards/comments??? using a unique integer column is okay, but order will be different for each foreign key
 - **database** &#8594; Should I be using UUID's or just incrementing ids to unique define rows?
 - **javascript** &#8594; How to interpret / understand / find documentation on vscode hints like this ![Vscode Documentation](./docs/images/vscodeDocumentation.PNG)
 - **endpoints** &#8594; You should want CRUD endpoints for each table (boards, cards, comments, lists, etc), however you also wanna make this data easily accessible for the frontend without having to do 5 or more separate requests - ideally you want to just do a single request based on the board_id and request all the resources that relate to it? I think? also how would you represent this data in the frontend?? big json object? keep it similar to the backend? or make it as easy as possible for the frontend???
